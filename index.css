@@ -1,0 +1,20 @@
+@font-face {
+    src: url('samsungsansm.ttf');
+    font-family: samsung-sans;
+}
+
+body {
+    transition: 1s;
+    margin: 0;
+}
+
+h1 {
+    font-family: samsung-sans;
+    margin: 0;
+    color: white;
+    font-size: 20vh;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
