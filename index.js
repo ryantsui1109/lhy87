@@ -8,6 +8,12 @@ $(document).ready(function() {
         var g = getRandom()
         var b = getRandom()
         $('body').css('background-color', `rgb(${r},${g},${b})`);
+        if (r + g + b >= 383) {
+            $('h1').css('color', 'black')
+        }
+        else {
+            $('h1').css('color', 'white')
+        }
     }
 
     function updateText() {
