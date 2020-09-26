@@ -10,10 +10,18 @@ $(document).ready(function() {
         $('body').css('background-color', `rgb(${r},${g},${b})`);
     }
 
-    var displayText = prompt(`請輸入顯示訊息`)
+    function updateText() {
+        $('h1,title').text(prompt(`請輸入顯示訊息`));
+    }
+    $('body').keydown(function(e) {
+        if (e.keyCode == 13) {
+            updateText()
+        }
+    });
 
-    $('h1,title').text(displayText);
 
+
+    updateText()
     setInterval(() => {
         display()
     }, 1000);
