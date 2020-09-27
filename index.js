@@ -23,7 +23,7 @@ $(document).ready(function() {
         var displayCopyRight = confrim("是否顯示作者")
         if(displayCopyRight){
             $('h3').css('display', 'inline');
-        } else{
+        } else {
             $('h3').css('display', 'inline');
         }
         $('h3').text();
