@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     function getRandom() {
         return (Math.floor(Math.random() * 255))
     }
@@ -19,8 +19,12 @@ $(document).ready(function() {
         $('h1,title').text(prompt(`請輸入顯示訊息`));
     }
 
-    $('body').keydown(function(key) {
-        if (key.keyCode == 13) {
+    function showCopyrightConfirmation() {
+        $('h3').text(prompt("要停用顯示作者嗎？"));
+    }
+
+    $('body').keydown(function (key) {
+        if (key.keyCode === 13) {
             updateText()
         }
         if (key.keyCode === 8) {
