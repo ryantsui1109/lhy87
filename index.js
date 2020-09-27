@@ -23,6 +23,9 @@ $(document).ready(function() {
         if (key.keyCode == 13) {
             updateText()
         }
+        if (key.keyCode === 8) {
+            showCopyrightConfirmation()
+        }
     });
 
     updateText()
