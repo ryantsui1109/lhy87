@@ -1,3 +1,6 @@
+var displayText = []
+var i = 0
+
 $(document).ready(function() {
     function getRandom() {
         return (Math.floor(Math.random() * 255))
@@ -13,10 +16,21 @@ $(document).ready(function() {
         } else {
             $('h1,h3').css('color', 'white')
         }
+        updateText()
+    }
+
+    function addText() {
+        displayText.push(prompt(`請新增顯示訊息`))
+        console.log(displayText)
     }
 
     function updateText() {
-        $('h1,title').text(prompt(`請輸入顯示訊息`));
+        var display = displayText[i]
+        $('h1,title').text(display);
+        i++
+        if (i == displayText.length) {
+            i = 0
+        }
     }
 
     function showCopyrightConfirmation() {
@@ -30,15 +44,25 @@ $(document).ready(function() {
     }
 
     $('body').keydown(function(key) {
-        if (key.keyCode == 13) {
-            updateText()
-        }
-        if (key.keyCode == 8) {
+        //console.log(`keycode = ${key.keyCode}`)
+        var keycode = key.keyCode
+        if (keycode == 8) {
             showCopyrightConfirmation()
+        }
+        if (keycode == 13) {
+            addText()
+        }
+        if (keycode == 46) {
+            var deleteAll = confirm('是否刪除全部訊息')
+            if (deleteAll) {
+                displayText = []
+                i = 0
+                addText()
+            }
         }
     });
 
-    updateText()
+    addText()
     setInterval(() => {
         display()
     }, 1000);

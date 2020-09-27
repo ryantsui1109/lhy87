@@ -1,12 +1,12 @@
 @font-face {
     src: url('samsungsharpsans-bold.otf');
-    font-family: samsung-sharp-sans;
+    font-family: samsungsharpsans;
 }
 
 .text {
     color: white;
     position: fixed;
-    font-family: samsung-sharp-sans;
+    font-family: samsungsharpsans;
 }
 
 body,
