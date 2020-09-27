@@ -18,22 +18,22 @@ $(document).ready(function() {
     function updateText() {
         $('h1,title').text(prompt(`請輸入顯示訊息`));
     }
-    
+
     function showCopyrightConfirmation() {
         var displayCopyRight = confrim("是否顯示作者")
-        if(displayCopyRight){
+        if (displayCopyRight) {
             $('h3').css('display', 'inline');
         } else {
             $('h3').css('display', 'none');
         }
         $('h3').text();
     }
-    
+
     $('body').keydown(function(key) {
         if (key.keyCode == 13) {
             updateText()
         }
-        if (key.keyCode === 8) {
+        if (key.keyCode == 8) {
             showCopyrightConfirmation()
         }
     });
