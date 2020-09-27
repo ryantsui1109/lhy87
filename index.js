@@ -20,7 +20,12 @@ $(document).ready(function() {
     }
     
     function showCopyrightConfirmation() {
-        var displayCopyRight = prompt("要停用顯示作者嗎？")
+        var displayCopyRight = confrim("是否顯示作者")
+        if(displayCopyRight){
+            $('h3').css('display', 'inline');
+        } else{
+            $('h3').css('display', 'inline');
+        }
         $('h3').text();
     }
     
