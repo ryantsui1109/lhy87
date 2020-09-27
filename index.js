@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     function getRandom() {
         return (Math.floor(Math.random() * 255))
     }
@@ -18,13 +18,14 @@ $(document).ready(function () {
     function updateText() {
         $('h1,title').text(prompt(`請輸入顯示訊息`));
     }
-
+    
     function showCopyrightConfirmation() {
-        $('h3').text(prompt("要停用顯示作者嗎？"));
+        var displayCopyRight = prompt("要停用顯示作者嗎？")
+        $('h3').text();
     }
-
-    $('body').keydown(function (key) {
-        if (key.keyCode === 13) {
+    
+    $('body').keydown(function(key) {
+        if (key.keyCode == 13) {
             updateText()
         }
         if (key.keyCode === 8) {
