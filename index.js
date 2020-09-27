@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
 
     function showCopyrightConfirmation() {
-        var displayCopyRight = confm("是否顯示作者")
+        var displayCopyRight = confirm("是否顯示作者")
         if (displayCopyRight) {
             $('h3').css('display', 'inline');
         } else {
