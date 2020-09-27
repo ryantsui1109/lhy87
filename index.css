@@ -3,19 +3,28 @@
     font-family: samsung-sans;
 }
 
-body {
+.text {
+    color: white;
+    position: fixed;
+    font-family: samsung-sans;
+}
+
+body,
+h1,
+h3 {
     transition: 1s;
     margin: 0;
 }
 
 h1 {
-    font-family: samsung-sans;
-    margin: 0;
-    color: white;
-    font-size: 20vh;
-    position: fixed;
+    font-size: 20vmin;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: 1s;
+}
+
+h3 {
+    font-size: 1vmax;
+    bottom: 5mm;
+    right: 5mm;
 }
