@@ -24,7 +24,7 @@ $(document).ready(function() {
         if(displayCopyRight){
             $('h3').css('display', 'inline');
         } else {
-            $('h3').css('display', 'inline');
+            $('h3').css('display', 'none');
         }
         $('h3').text();
     }
