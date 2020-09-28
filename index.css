@@ -1,0 +1,11 @@
+.text {
+    color: white;
+    font-family: UbuntuR;
+}
+
+body,
+h1,
+h3 {
+    transition: 1s;
+    margin: 0;
+}
