@@ -14,7 +14,7 @@ $(document).ready(function() {
         var g = getRandom()
         var b = getRandom()
         $('body').css('background-color', `rgb(${r},${g},${b})`);
-        if (r + g + b > 382) {
+        if (r > 127 && g > 127 && b > 127) {
             $('h1,h3').css('color', 'black')
         } else {
             $('h1,h3').css('color', 'white')
@@ -59,7 +59,9 @@ $(document).ready(function() {
             if (deleteAll) {
                 if (enableOPMode) {
                     displayText = []
-                } else { displayText = ["806製作"] }
+                } else {
+                    displayText = ["806製作"]
+                }
                 i = 0
                 addText()
             }
@@ -73,7 +75,9 @@ $(document).ready(function() {
         if (keycode == 76) {
             if (opMode) {
                 enableOPMode = 1
+                clearTimeout(OPtimeout)
                 console.log('OP mode enabled!')
+                displayText.shift()
             }
         }
     });
