@@ -1,4 +1,4 @@
-var displayText = []
+var displayText = ["806製作"]
 var i = 0
 
 $(document).ready(function() {
@@ -55,7 +55,7 @@ $(document).ready(function() {
         if (keycode == 46) {
             var deleteAll = confirm('是否刪除全部訊息')
             if (deleteAll) {
-                displayText = []
+                displayText = ["806製作"]
                 i = 0
                 addText()
             }
