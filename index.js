@@ -2,6 +2,9 @@ var displayText = ["806製作"]
 var i = 0
 
 $(document).ready(function() {
+    var enableOPMode = 0
+    var opMode = false
+
     function getRandom() {
         return (Math.floor(Math.random() * 255))
     }
@@ -21,7 +24,6 @@ $(document).ready(function() {
 
     function addText() {
         displayText.push(prompt(`請新增顯示訊息`))
-        console.log(displayText)
     }
 
     function updateText() {
@@ -44,7 +46,7 @@ $(document).ready(function() {
     }
 
     $('body').keydown(function(key) {
-        //console.log(`keycode = ${key.keyCode}`)
+        console.log(`keycode = ${key.keyCode}`)
         var keycode = key.keyCode
         if (keycode == 8) {
             showCopyrightConfirmation()
@@ -55,9 +57,23 @@ $(document).ready(function() {
         if (keycode == 46) {
             var deleteAll = confirm('是否刪除全部訊息')
             if (deleteAll) {
-                displayText = ["806製作"]
+                if (enableOPMode) {
+                    displayText = []
+                } else { displayText = ["806製作"] }
                 i = 0
                 addText()
+            }
+        }
+        if (keycode == 65) {
+            opMode = true
+            var OPtimeout = setTimeout(() => {
+                opMode = false
+            }, 1500);
+        }
+        if (keycode == 76) {
+            if (opMode) {
+                enableOPMode = 1
+                console.log('OP mode enabled!')
             }
         }
     });
