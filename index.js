@@ -1,4 +1,9 @@
-var displayArray = ["Press enter", "to edit text", "按下Enter", "編輯顯示訊息"];
+var displayArray = [
+  "Click on anywhere",
+  "to edit text",
+  "按任意處",
+  "編輯訊息",
+];
 var displayIndex = 0;
 
 function createInputGroup(inputID, optMode, calledBy) {
@@ -117,11 +122,9 @@ $(document).ready(function () {
     }
   }
 
-  $("body").keydown(function (e) {
-    keycode = e.keyCode;
-    if (keycode == 13) {
-      addText();
-    }
+  $("body").click(function (e) {
+    // e.preventDefault();
+    addText();
   });
 
   setInterval(() => {
