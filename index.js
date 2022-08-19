@@ -1,7 +1,7 @@
 var displayArray = ["Press enter", "to edit text", "按下Enter", "編輯顯示訊息"];
 var displayIndex = 0;
 
-function createInputGroup(inputID, optMode,calledBy) {
+function createInputGroup(inputID, optMode, calledBy) {
   const inputEl = `
     <div class="input-group mb-3">
   <input
@@ -28,7 +28,7 @@ function createInputGroup(inputID, optMode,calledBy) {
       />
     </svg>
   </button>
-  <button class="btn btn-danger" onclick="$(this).parent().remove();" type="button">
+  <button class="btn btn-danger" onclick="detectRemoveInput(this)" type="button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -48,18 +48,21 @@ function createInputGroup(inputID, optMode,calledBy) {
   if (optMode == "append") {
     $("#messageQueueBody").append(inputEl);
   }
-  if ((optMode == "insert")) {
-   
+  if (optMode == "insert") {
     $(inputEl).insertAfter($(calledBy).parent());
   }
 }
-
+function detectRemoveInput(calledBy) {
+  if ($(".msgToDisplay").length > 1) {
+    $(calledBy).parent().remove();
+  }
+}
 function saveChanges() {
   msgToDisplay = $("body")
     .find(".msgToDisplay")
     .map((_, el) => el.value)
     .get();
- 
+
   displayArray = msgToDisplay;
   displayIndex = 0;
 }
