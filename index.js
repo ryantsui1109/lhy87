@@ -5,7 +5,7 @@ var displayArray = [
   "編輯訊息",
 ];
 var displayIndex = 0;
-
+var isModal = false;
 function createInputGroup(inputID, optMode, calledBy) {
   const inputEl = `
     <div class="input-group mb-3">
@@ -58,6 +58,7 @@ function createInputGroup(inputID, optMode, calledBy) {
   }
 }
 function detectRemoveInput(calledBy) {
+  console.log("try to remove");
   if ($(".msgToDisplay").length > 1) {
     $(calledBy).parent().remove();
   }
@@ -73,11 +74,18 @@ function saveChanges() {
 }
 $(document).ready(function () {
   const messageQueue = new bootstrap.Modal("#messageQueue", {});
+  const msgQueueDOM = document.getElementById("messageQueue");
   function addText() {
-    showMSGQueue();
+    showInputs();
     messageQueue.show();
   }
 
+  msgQueueDOM.addEventListener("show.bs.modal", (event) => {
+    isModal = true;
+  });
+  msgQueueDOM.addEventListener("hide.bs.modal", (event) => {
+    isModal = false;
+  });
   function displayText() {
     if (displayArray == []) {
       addText();
@@ -109,7 +117,7 @@ $(document).ready(function () {
     return Math.round(Math.random() * 255);
   }
 
-  function showMSGQueue() {
+  function showInputs() {
     if (displayArray.length) {
       $("#messageQueueBody").empty();
       for (x in displayArray) {
@@ -121,11 +129,15 @@ $(document).ready(function () {
       createInputGroup(0, "append");
     }
   }
-
+  // while (!isModal) {
   $("body").click(function (e) {
-    // e.preventDefault();
-    addText();
+    if (!isModal) {
+      e.preventDefault();
+      console.log("clicked");
+      addText();
+    }
   });
+  // }
 
   setInterval(() => {
     displayText();
